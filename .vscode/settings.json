@@ -1,0 +1,8 @@
+{
+  "prettier.arrowParens": "always",
+  "prettier.printWidth": 80,
+  "prettier.trailingComma": "all",
+  "cSpell.words": [
+    "rocketseat"
+  ]
+}
