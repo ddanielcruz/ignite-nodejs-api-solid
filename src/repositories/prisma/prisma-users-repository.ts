@@ -6,7 +6,7 @@ import type { UsersRepository, CreateUserParams } from '../users-repository'
 
 export class PrismaUsersRepository implements UsersRepository {
   async create(data: CreateUserParams) {
-    await prisma.user.create({ data })
+    return await prisma.user.create({ data })
   }
 
   async findByEmail(email: string): Promise<User | null> {
