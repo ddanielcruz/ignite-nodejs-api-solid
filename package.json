@@ -2,14 +2,15 @@
   "name": "ignite-nodejs-api-solid",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "tsup src --out-dir build",
     "start": "node build/server.js",
     "start:dev": "tsx watch src/server.ts",
     "prisma:studio": "prisma studio --browser none",
     "test": "vitest run --passWithNoTests",
-    "test:watch": "vitest watch --passWithNoTests"
+    "test:watch": "vitest watch --passWithNoTests",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@prisma/client": "5.7.1",
@@ -23,6 +24,8 @@
     "@rocketseat/eslint-config": "2.1.0",
     "@types/bcryptjs": "2.4.6",
     "@types/node": "20.10.5",
+    "@vitest/coverage-v8": "1.1.0",
+    "@vitest/ui": "1.1.0",
     "eslint": "8.56.0",
     "tsup": "8.0.1",
     "tsx": "4.7.0",
