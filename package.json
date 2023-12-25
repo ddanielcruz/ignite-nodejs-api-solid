@@ -1,0 +1,19 @@
+{
+  "name": "ignite-nodejs-api-solid",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsup src --out-dir build",
+    "start": "node build/server.js",
+    "start:dev": "tsx watch src/server.ts"
+  },
+  "dependencies": {
+    "fastify": "4.25.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.10.5",
+    "tsup": "8.0.1",
+    "tsx": "4.7.0",
+    "typescript": "5.3.3"
+  }
+}
