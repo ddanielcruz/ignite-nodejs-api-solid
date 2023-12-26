@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto'
+
 import {
   type CreateUserParams,
   type User,
@@ -5,22 +7,25 @@ import {
 } from '../users-repository'
 
 export class InMemoryUsersRepository implements UsersRepository {
-  public users: User[] = []
+  public items: User[] = []
 
   async create(params: CreateUserParams): Promise<User> {
-    const createdAt = new Date()
     const user: User = {
-      id: `user-${createdAt.getTime()}`,
-      createdAt,
+      id: randomUUID(),
+      createdAt: new Date(),
       ...params,
     }
 
-    this.users.push(user)
+    this.items.push(user)
 
     return user
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return this.users.find((user) => user.email === email) ?? null
+    return this.items.find((user) => user.email === email) ?? null
+  }
+
+  async findById(id: string): Promise<User | null> {
+    return this.items.find((user) => user.id === id) ?? null
   }
 }
