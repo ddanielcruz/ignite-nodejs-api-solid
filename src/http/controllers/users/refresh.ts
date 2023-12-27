@@ -4,10 +4,10 @@ export async function refresh(request: FastifyRequest, reply: FastifyReply) {
   // Verify the JWT token from the cookie.
   await request.jwtVerify({ onlyCookie: true })
 
-  const { sub } = request.user
-  const token = await reply.jwtSign({}, { sign: { sub } })
+  const { sub, role } = request.user
+  const token = await reply.jwtSign({ role }, { sign: { sub } })
   const refreshToken = await reply.jwtSign(
-    {},
+    { role },
     { sign: { sub, expiresIn: '7d' } },
   )
 
